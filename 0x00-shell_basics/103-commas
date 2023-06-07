@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Abv > temp_file; sort -d -f -t / -k 2 temp_file > sorted_file; tr '\n' ',' < sorted_file; echo; rm temp_file sorted_file
+ls -1 -v --group-directories-first | sed -e 's/^\.\///' -e 's/$/\//' | tr '\n' ','; echo
